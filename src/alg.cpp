@@ -6,7 +6,7 @@ using namespace std;
 #include  <cstdlib>
 #include <cctype> 
 
-BST<std::string> makeTree(const char* filename)
+BST<std::string> makeTree(char* filename)
 {
 	BST<std::string>BS;
 	ifstream f;
