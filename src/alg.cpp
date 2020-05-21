@@ -5,7 +5,8 @@
 #include  <cstdlib>
 
 BST<std::string> makeTree(char* filename)
-{std::string word;
+{
+std::string word;
 	std::ifstream F(filename);
 	BST<std::string> *tree = new BST<std::string>;
 	char str = ' ';
@@ -15,7 +16,9 @@ BST<std::string> makeTree(char* filename)
 		{
 			F.get(str);
 		}
-(  str >= 65  && (!F.eof()))
+
+
+while (  str >= 65  && (!F.eof()))
 {
 	if (str >= 65 && str <= 90)
 	{
@@ -42,5 +45,4 @@ word = "";
 
 
 	return *tree;
-
 }
