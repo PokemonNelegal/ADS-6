@@ -4,7 +4,8 @@
 #include  <locale>
 #include  <cstdlib>
 
-BST<std::string> makeTree(char* filename){
+BST<std::string> makeTree(char* filename)
+{
 	std::string word;
 	std::ifstream F(filename);
 	BST<std::string>* tree = new BST<std::string>;
@@ -44,5 +45,4 @@ BST<std::string> makeTree(char* filename){
 
 
 return *tree;
-}
 }
