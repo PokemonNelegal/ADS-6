@@ -17,8 +17,8 @@ public:
 	void Add(T);
 	void Print();
 
-	int  Depth();
-	int  Search(T);
+	int  depth();
+	int  search(T);
 
 	void Clear();
 	void Remove(int);
@@ -131,7 +131,7 @@ int BST<T>::DepthTree(Node* base) {
 }
 
 template<typename T>
-int BST<T>::Depth() {
+int BST<T>::depth() {
 	return DepthTree(base);
 }
 
@@ -149,7 +149,7 @@ int BST<T>::SearchNode(Node* base, T value)
 }
 
 template<typename T>
-int BST<T>::Search(T value)
+int BST<T>::search(T value)
 {
 	return SearchNode(base, value);
 }
