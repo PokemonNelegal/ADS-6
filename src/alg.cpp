@@ -17,7 +17,7 @@ BST<string> makeTree(char* filename)
         tmp.clear(); 
         for (int j = 0; j < str.size(); j++)
         {
-            if ((str[j]>= 'A' && str[j] <= 'Z') || (str[j]>='a' && str[j] <= 'z'))
+            if ((str[j]>= '65' && str[j] <= '90') || (str[j]>='97' && str[j] <= '122'))
             {
                 str[j] = (char)tolower(str[j]);
                 tmp += str[j];
