@@ -22,10 +22,10 @@ BST<string> makeTree(char* filename)
                 str[j] = (char)tolower(str[j]);
                 tmp += str[j];
             }
-            else if (!tmp.empty())
+            else if (tmp!="")
             {
                 tree1.add(tmp);
-                tmp.clear();
+                tmp="";
                 continue;
             }
         }
