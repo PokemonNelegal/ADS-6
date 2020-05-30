@@ -12,10 +12,9 @@ BST<string> makeTree(char* filename)
     BST<string> tree1;
     ifstream file(filename);
     string str, tmp;
-    while (!file.eof())
+    while (file >> str;)
     {
-        tmp.clear();
-        file >> str;
+        tmp.clear(); 
         for (int j = 0; j < str.size(); j++)
         {
             if (('A' <= str[j] && str[j] <= 'Z') || ('a' <= str[j] && str[j] <= 'z'))
