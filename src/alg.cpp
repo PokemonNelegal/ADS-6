@@ -19,7 +19,7 @@ BST<string> makeTree(char* filename)
     {
         flag = 0;
         if ((str[j] >= 'a' && str[j] <= 'z') || (str[j] >= 'A' && str[j] <= 'Z'))
-            tmp += (char)tolower(s[j]);
+            tmp += (char)tolower(str[j]);
         else
             if (tmp != "")
             {
