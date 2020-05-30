@@ -12,7 +12,7 @@ BST<string> makeTree(char* filename)
     BST<string> tree1;
     ifstream file(filename);
     string str, tmp;
-    while (file >> str;)
+    while (file >> str)
     {
         tmp.clear(); 
         for (int j = 0; j < str.size(); j++)
