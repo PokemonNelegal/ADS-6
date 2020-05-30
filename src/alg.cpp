@@ -11,13 +11,12 @@ BST<string> makeTree(char* filename)
 {
     BST<string> tree1;
     ifstream file(filename);
-    string str, tmp;
+    string str="", tmp="";
     while (file >> str)
     {
-        tmp.clear(); 
         for (int j = 0; j < str.size(); j++)
         {
-            if ((str[j]>= '65' && str[j] <= '90') || (str[j]>='97' && str[j] <= '122'))
+            if ((str[j]>= 'A' && str[j] <= 'Z') || (str[j]>='a' && str[j] <= 'z'))
             {
                 str[j] = (char)tolower(str[j]);
                 tmp += str[j];
@@ -26,7 +25,6 @@ BST<string> makeTree(char* filename)
             {
                 tree1.add(tmp);
                 tmp="";
-                continue;
             }
         }
     }
