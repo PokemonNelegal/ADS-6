@@ -38,4 +38,4 @@ std::string word;
 	}
 	return *tree;
 }
-}
+
