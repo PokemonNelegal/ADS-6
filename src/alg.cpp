@@ -1,5 +1,6 @@
 #include  <locale>
 #include  <cstdlib>
+#include "bst.h"
 
 BST<std::string> makeTree(char* filename)
 {
