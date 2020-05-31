@@ -11,8 +11,6 @@ BST<std::string> makeTree(char* filename)
 	BST<std::string>* tree = new BST<std::string>;
 	char str = ' ';
 	while (!F.eof()) {
-
-} 
 		while (str < 65 && (!F.eof()))
 		{
 			F.get(str);
@@ -42,8 +40,5 @@ BST<std::string> makeTree(char* filename)
 		(*tree).Add(word);
 		word = "";
 	}
-
-
-
 	return *tree;
 }
