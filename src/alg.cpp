@@ -1,6 +1,3 @@
-#include  "bst.h"
-#include  <iostream>
-#include  <fstream>
 #include  <locale>
 #include  <cstdlib>
 
