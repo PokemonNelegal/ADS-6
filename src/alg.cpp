@@ -11,22 +11,32 @@ BST<std::string> makeTree(char* filename)
 	file.open(filename);
 	BST<string> TREE;
 	string word;
+	string line;
 	while (file)
 	{
 		file >> word;
-		int k = 0;
-		for (int i = 0; i < word.size(); i++)
+		int i = 0;
+		while (i < word.size())
 		{
-			if ((word[i] >= 'a' && word[i] <= 'z') || (word[i] >= 'A' && word[i] <= 'Z'))
+			int k = 0;
+			while ((word[i] >= 'a' && word[i] <= 'z') || (word[i] >= 'A' && word[i] <= 'Z') || (i < word.size()))
 			{
+				if ((int)word[i] == 39)
+					break;
 				if (word[i] >= 'A' && word[i] <= 'Z')
 					word[i] += 32;
-				
+				line += word[i];
+				i++;
 				k++;
 			}
+			if (k != 0)
+			{
+				TREE.add(line);
+				line = "";
+			}
+			else
+				i++;
 		}
-		if (k == word.size())
-			TREE.add(word);
 	}
 	return TREE;
 }
