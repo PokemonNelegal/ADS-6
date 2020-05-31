@@ -51,7 +51,8 @@ BST<T>::BST(const BST<T>& temp) {
 
 template<typename T>
 typename BST<T>::Node* BST<T>::CopyNode(Node* base, Node* temp) {
-	if (!(temp == nullptr)) {
+	if (!(temp == nullptr))
+	{
 		base = new Node;
 		base->value = temp->value;
 		base->count = temp->count;
@@ -100,7 +101,8 @@ void BST<T>::Add(T value) {
 
 template<typename T>
 void BST<T>::PrintTree(Node* base)const {
-	if (base == nullptr) {
+	if (base == nullptr)
+	{
 		return;
 	}
 	PrintTree(base->left);
@@ -157,7 +159,8 @@ void  BST<T>::DeleteTree(Node* base)
 {
 	if (base == nullptr)
 		return;
-	else {
+	else
+	{
 		DeleteTree(base->left);
 		DeleteTree(base->right);
 		delete base;
@@ -168,7 +171,8 @@ void  BST<T>::DeleteTree(Node* base)
 template<typename T>
 void BST<T>::Clear()
 {
-	if (base) {
+	if (base)
+	{
 		DeleteTree(base);
 		base = nullptr;
 	}
@@ -176,36 +180,41 @@ void BST<T>::Clear()
 template<typename T>
 typename BST<T>::Node* BST<T>::DeleteNode(typename BST<T>::Node* base, int value)
 {
-	Node* tempBase, * tempValue;
+	Node* b, * v;
 	if (base == nullptr)
 		return base;
 	else if (value < base->value)
 		base->left = DeleteNode(base->left, value);
 	else if (value > base->value)
 		base->right = DeleteNode(base->right, value);
-	else {
-		tempBase = base;
+	else
+	{
+		b = base;
 		if (base->right == nullptr)
 			base = base->left;
 		else if (base->left == nullptr)
 			base = base->right;
-		else {
-			tempValue = base->left;
-			if (tempValue->right) {
-				while (tempValue->right->right)
-					tempValue = tempValue->right;
-				base->value = tempValue->right->value;
-				base->count = tempValue->right->count;
-				tempBase = tempValue->right;
-				tempValue->right = tempValue->right->left;
-			} else {
-				base->value = tempValue->value;
-				base->count = tempValue->count;
-				tempBase = tempValue;
+		else
+		{
+			v = base->left;
+			if (v->right)
+			{
+				while (v->right->right)
+					v = v->right;
+				base->value = v->right->value;
+				base->count = v->right->count;
+				b = v->right;
+				v->right = v->right->left;
+			}
+			else
+			{
+				base->value = v->value;
+				base->count = v->count;
+				b = v;
 				base->left = base->left->left;
 			}
 		}
-		delete tempBase;
+		delete b;
 	}
 	return base;
 }
