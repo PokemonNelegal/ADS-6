@@ -3,6 +3,7 @@ using namespace std;
 #include  <locale>
 #include  <cstdlib>
 #include "bst.h"
+#include <fstream>
 
 BST<std::string> makeTree(char* filename)
 {
