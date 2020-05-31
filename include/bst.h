@@ -9,9 +9,9 @@ public:
 	{
 		T value;
 		int count;
-		Node* first;
-		Node* last;
-	}
+		Node* left;
+		Node* right;
+	};
 private:
 	Node* root;
 	Node* addNode(Node*, T);
@@ -31,16 +31,16 @@ public:
 	void clear();
 	void remove(int);
 	BST(const BST<T>& temp);
-}
+};
 
 template <typename T>
 BST<T>::BST(const BST<T>&  temp) {
 	root = new Node;
 	root->value = temp.root->value;
 	root->count = temp.root->count;
-	root->first = root->last = nullptr;
-	root->first = copyNode(root->first, temp.root->first);
-	root->last = copyNode(root->last, temp.root->last);
+	root->left = root->right = nullptr;
+	root->left = copyNode(root->left, temp.root->left);
+	root->right = copyNode(root->right, temp.root->right);
 }
 
 template<typename T>
@@ -50,9 +50,9 @@ typename BST<T>::Node* BST<T>::copyNode(Node* root,Node* temp) {
 	root = new Node;
 	root->value = temp->value;
 	root->count = temp->count;
-	root->first= root->last = nullptr;
-	root->first = copyNode(root->first, temp->first);
-	root->last = copyNode(root->last, temp->last);
+	root->left = root->right = nullptr;
+	root->left = copyNode(root->left, temp->left);
+	root->right = copyNode(root->right, temp->right);
 	}
 	return root;
 }
@@ -74,13 +74,13 @@ typename BST<T>::Node* BST<T>::addNode(Node* root, T value) {
 		root = new Node;
 		root->value = value;
 		root->count = 1;
-		root->first = root->last = nullptr;
+		root->left = root->right = nullptr;
 	}
 	else if (root->value > value) {
-		root->first = addNode(root->first, value);
+		root->left = addNode(root->left, value);
 	}
 	else if (root->value < value) {
-		root->last = addNode(root->last, value);
+		root->right = addNode(root->right, value);
 	}
 	else
 		root->count++;
@@ -101,7 +101,7 @@ void BST<T>::printTree(Node* root)const {
 	printTree(root->left);
 	for (int i = 0; i < root->count; i++)
 		std::cout << root->value << " ";
-	printTree(root->last);
+	printTree(root->right);
 }
 
 template<typename T>
@@ -113,14 +113,14 @@ template<typename T>
 int BST<T>::depthTree(Node* root) {
 	if (root == nullptr)
 		return 0;
-	if (root->first == nullptr && root->last == nullptr)
+	if (root->left == nullptr && root->right == nullptr)
 		return 0;
-	int first = depthTree(root->first);
-	int last = depthTree(root->last);
-	if (first > last)
-		return first + 1;
+	int left = depthTree(root->left);
+	int right = depthTree(root->right);
+	if (left > right)
+		return left + 1;
 	else
-		return last + 1;
+		return right + 1;
 }
 
 template<typename T>
@@ -134,9 +134,9 @@ int BST<T>::searchNode(Node* root, T value)
 	if (root == nullptr)
 		return 0;
 	else if (root->value > value)
-		return searchNode(root->first, value);
+		return searchNode(root->left, value);
 	else if (root->value < value)
-		return searchNode(root->last, value);
+		return searchNode(root->right, value);
 	else
 		return root->count;
 }
@@ -154,8 +154,8 @@ void  BST<T>::delTree(Node* root)
 		return;
 	else
 	{
-		delTree(root->first);
-		delTree(root->last);
+		delTree(root->left);
+		delTree(root->right);
 		delete root;
 		root = nullptr;
 	}
@@ -173,41 +173,41 @@ void BST<T>::clear()
 template<typename T>
 typename BST<T>::Node* BST<T>::delNode(typename BST<T>::Node* root, int value)
 {
-	Node* g, * b;
+	Node* p, * v;
 	if (root == nullptr)
 		return root;
 	else if (value < root->value)
-		root->first = delNode(root->first, value);
+		root->left = delNode(root->left, value);
 	else if (value > root->value)
-		root->last = delNode(root-last, value);
+		root->right = delNode(root->right, value);
 	else
 	{
-		g = root;
-		if (root->last == nullptr)
-			root = root->first;
-		else if (root->first == nullptr)
-			root = root->last;
+		p = root;
+		if (root->right == nullptr)
+			root = root->left;
+		else if (root->left == nullptr)
+			root = root->right;
 		else
 		{
-			b = root->first;
-			if (v->last)
+			v = root->left;
+			if (v->right)
 			{
-				while (b->last->last)
-					b = b->right;
-				root->value = b->last->value;
-				root->count = b->last->count;
-				g = b->last;
-				b->last = b->last->first;
+				while (v->right->right)
+					v = v->right;
+				root->value = v->right->value;
+				root->count = v->right->count;
+				p = v->right;
+				v->right = v->right->left;
 			}
 			else
 			{
-				root->value = b->value;
-				root->count = b->count;
-				g = b;
-				root->first = root->first->first;
+				root->value = v->value;
+				root->count = v->count;
+				p = v;
+				root->left = root->left->left;
 			}
 		}
-		delete g;
+		delete p;
 	}
 	return root;
 }
