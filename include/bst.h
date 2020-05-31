@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;1
+using namespace std;
 
 template<typename T>
 class BST {
