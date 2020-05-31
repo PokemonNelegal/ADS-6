@@ -14,14 +14,12 @@ public:
 private:
     Node* root;
     Node* addNode(Node*, T);
-    void  printTree(Node*);
     int   searchNode(Node*, T);
     int   depthTree(Node*);
 public:
     BST();
     ~BST();
     void add(T);
-    void print();
     int  search(T);
     int depth();
     
@@ -56,20 +54,7 @@ template<typename T>
 void BST<T>::add(T value) {
     root = addNode(root, value);
 }
-template<typename T>
-void BST<T>::printTree(Node* root) {
-    if (root == nullptr)
-        return;
-    printTree(root->left);
-    for (int i = 0; i < root->count; i++)
-        cout << root->value << " ";
-    printTree(root->right);
-}
 
-template<typename T>
-void BST<T>::print() {
-    printTree(root);
-}
 template<typename T>
 int BST<T>::searchNode(Node* root, T value)
 {
