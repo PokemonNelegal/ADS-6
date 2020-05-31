@@ -4,13 +4,13 @@
 
 BST<std::string> makeTree(char* filename)
 {
-        ifstream file;
-	file.open(filename);
+        ifstream f;
+	f.open(filename);
 	BST<string> TREE;
 	string word;
-	while (file)
+	while (f)
 	{
-		file >> word;
+		f >> word;
 		int k = 0;
 		for (int i = 0; i < word.size(); i++)
 		{
