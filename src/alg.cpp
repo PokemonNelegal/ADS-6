@@ -19,6 +19,7 @@ BST<std::string> makeTree(char* filename)
 			{
 				if (word[i] >= 'A' && word[i] <= 'Z')
 					word[i] += 32;
+				
 				k++;
 			}
 		}
