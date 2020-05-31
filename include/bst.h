@@ -38,7 +38,6 @@ BST<T>::~BST()
 	if (root)
 		delTree(root);
 }
-
 template<typename T>
 typename BST<T>::Node* BST<T>::addNode(Node* root, T value) {
 	if (root == nullptr) {
@@ -57,7 +56,6 @@ typename BST<T>::Node* BST<T>::addNode(Node* root, T value) {
 		root->count++;
 	return root;
 }
-
 template<typename T>
 void BST<T>::add(T value) {
 	root = addNode(root, value);
@@ -91,7 +89,6 @@ int BST<T>::depthTree(Node* root) {
 	else
 		return right + 1;
 }
-
 template<typename T>
 int BST<T>::depth() {
 	return depthTree(root);
