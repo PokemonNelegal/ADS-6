@@ -20,7 +20,7 @@ private:
 	int   searchNode(Node*, T);
 	void  delTree(Node*);
 	Node* delNode(Node*, int);
-	Node* copyNode(Node*,Node*);
+	Node* copyNode(Node*, Node*);
 public:
 	BST();
 	~BST();
@@ -33,8 +33,9 @@ public:
 	BST(const BST<T>& temp);
 };
 
+
 template <typename T>
-BST<T>::BST(const BST<T>&  temp) {
+BST<T>::BST(const BST<T>& temp) {
 	root = new Node;
 	root->value = temp.root->value;
 	root->count = temp.root->count;
@@ -43,19 +44,21 @@ BST<T>::BST(const BST<T>&  temp) {
 	root->right = copyNode(root->right, temp.root->right);
 }
 
+
 template<typename T>
-typename BST<T>::Node* BST<T>::copyNode(Node* root,Node* temp) {
-	if(!(temp==nullptr))
+typename BST<T>::Node* BST<T>::copyNode(Node* root, Node* temp) {
+	if (!(temp == nullptr))
 	{
-	root = new Node;
-	root->value = temp->value;
-	root->count = temp->count;
-	root->left = root->right = nullptr;
-	root->left = copyNode(root->left, temp->left);
-	root->right = copyNode(root->right, temp->right);
+		root = new Node;
+		root->value = temp->value;
+		root->count = temp->count;
+		root->left = root->right = nullptr;
+		root->left = copyNode(root->left, temp->left);
+		root->right = copyNode(root->right, temp->right);
 	}
 	return root;
 }
+
 
 template<typename T>
 BST<T>::BST() :root(nullptr) {}
