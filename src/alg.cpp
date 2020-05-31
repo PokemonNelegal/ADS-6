@@ -6,7 +6,7 @@
 
 BST<std::string> makeTree(char* filename)
 {
-        ifstream file(filename);
+        ifstream file;
 	f.open(filename);
 	BST<string> TREE;
 	string word;
