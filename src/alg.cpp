@@ -19,10 +19,8 @@ BST<std::string> makeTree(char* filename)
 		while (i < word.size())
 		{
 			int k = 0;
-			while ((word[i] >= 'a' && word[i] <= 'z') || (word[i] >= 'A' && word[i] <= 'Z') || (i < word.size()))
+			while ((word[i] >= 'a' && word[i] <= 'z') || (word[i] >= 'A' && word[i] <= 'Z') && (i < word.size()))
 			{
-				if ((int)word[i] == 39)
-					break;
 				if (word[i] >= 'A' && word[i] <= 'Z')
 					word[i] += 32;
 				line += word[i];
