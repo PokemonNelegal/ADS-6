@@ -4,12 +4,6 @@
 #include  <locale>
 #include  <cstdlib>
 
-BST<s#include  "bst.h"
-#include  <iostream>
-#include  <fstream>
-#include  <locale>
-#include  <cstdlib>
-
 BST<std::string> makeTree(char* filename)
 {
   std::string word;
@@ -32,19 +26,6 @@ BST<std::string> makeTree(char* filename)
 			}
 
 			file.get(tempStr);
-		}
-
-		for (int i = 0; i < word.length(); i++) {
-			if (word[i] >= 65 && word[i] <= 90)
-				word[i] += 32;
-		}
-
-		(*tree).Add(word);
-		word = "";
-	}
-
-	return *tree;
-}
 		}
 
 		for (int i = 0; i < word.length(); i++) {
