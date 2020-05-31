@@ -39,6 +39,5 @@ std::string word;
 		(*tree).add(word);
 		word = "";
 	}
-
 	return *tree;
 }
