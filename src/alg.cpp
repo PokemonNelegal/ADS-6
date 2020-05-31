@@ -1,16 +1,18 @@
+#include <iostream>
+using namespace std;
 #include  <locale>
 #include  <cstdlib>
 #include "bst.h"
 
 BST<std::string> makeTree(char* filename)
 {
-        ifstream f;
-	f.open(filename);
+        ifstream file;
+	file.open(filename);
 	BST<string> TREE;
 	string word;
-	while (f)
+	while (file)
 	{
-		f >> word;
+		file >> word;
 		int k = 0;
 		for (int i = 0; i < word.size(); i++)
 		{
