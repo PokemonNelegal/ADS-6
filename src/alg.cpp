@@ -4,10 +4,7 @@
 #include  <locale>
 #include  <cstdlib>
 
-BST<std::string> makeTree(char* filename)
-{
-
-}
+BST<std::string> makeTree(char* filename){
 BST<std::string> tree;
 	ifstream file(filename);
 	string str,node;
